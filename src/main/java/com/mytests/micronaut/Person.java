@@ -1,8 +1,10 @@
 package com.mytests.micronaut;
 
+import io.micronaut.serde.annotation.Serdeable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+@Serdeable
 @Entity
 public class Person {
     @Id
@@ -34,5 +36,20 @@ public class Person {
 
     public void setSurname(String surname) {
         this.surname = surname;
+    }
+
+    public Person(Long id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+               "id=" + id +
+               ", name='" + name + '\'' +
+               ", surname='" + surname + '\'' +
+               '}';
     }
 }

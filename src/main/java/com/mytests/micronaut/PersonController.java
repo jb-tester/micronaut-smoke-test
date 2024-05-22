@@ -9,11 +9,18 @@ import jakarta.inject.Inject;
 import java.util.List;
 
 
-@Controller("/")
+@Controller("/person")
 public class PersonController {
+    private PersonRepository repo;
+    public PersonController(PersonRepository repo) {
+        this.repo = repo;
+        repo.save(new Person(1L, "masha","ivanova"));
+        repo.save(new Person(2L, "sasha","petrov"));
+        repo.save(new Person(3L, "dasha","sidorova"));
+        repo.save(new Person(4L, "sasha","testov"));
+        repo.save(new Person(5L, "pasha","pavlov"));
 
-    @Inject
-    PersonRepository repo;
+    }
 
     @Get("/all")
     public List<Person> getAll() {
