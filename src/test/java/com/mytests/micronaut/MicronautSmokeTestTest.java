@@ -29,7 +29,7 @@ class MicronautSmokeTestTest {
     void testAllPerson() {
 
         List<Person> results = client.toBlocking().retrieve(HttpRequest.GET("/all"), Argument.listOf(Person.class));
-
+        results.forEach(System.out::println);
         Assertions.assertEquals(
                 5,
                 results.size()
@@ -40,7 +40,7 @@ class MicronautSmokeTestTest {
     void testPersonByName() {
 
          List<Person> results = client.toBlocking().retrieve(HttpRequest.GET("/byName/sasha"), Argument.listOf(Person.class));
-
+results.forEach(System.out::println);
         Assertions.assertEquals(
                 2,
                 results.size()
@@ -49,8 +49,8 @@ class MicronautSmokeTestTest {
 
     @Test
     void repositoryMethodsTest() {
-        personRepository.save(new Person(20L, "masha", "mashina"));
-        int rez = personRepository.getIdByName("masha");
+        personRepository.save(new Person(20L, "natasha", "mashina"));
+        int rez = personRepository.getIdByName("natasha");
         Assertions.assertEquals(20,rez);
     }
 }

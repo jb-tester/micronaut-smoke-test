@@ -14,11 +14,7 @@ public class PersonController {
     private PersonRepository repo;
     public PersonController(PersonRepository repo) {
         this.repo = repo;
-        repo.save(new Person(1L, "masha","ivanova"));
-        repo.save(new Person(2L, "sasha","petrov"));
-        repo.save(new Person(3L, "dasha","sidorova"));
-        repo.save(new Person(4L, "sasha","testov"));
-        repo.save(new Person(5L, "pasha","pavlov"));
+
 
     }
 
@@ -33,5 +29,5 @@ public class PersonController {
         return repo.customQuery1(name);
     }
 
-   
-}    
+
+}
